@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Patient Form</title>
+  </head>
+  <body>
+    <h1>Enter Patient Information</h1>
+    {% if errors %}
+    <ul style="color: red">
+      {% for error in errors %}
+      <li>{{ error }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+    <form method="POST" action="{{ url_for('submit') }}">
+      First Name:
+      <input
+        type="text"
+        name="first_name"
+        value="{{ form_data.first_name if form_data else '' }}"
+      /><br /><br />
+      Last Name:
+      <input
+        type="text"
+        name="last_name"
+        value="{{ form_data.last_name if form_data else '' }}"
+      /><br /><br />
+      Date of Birth:
+      <input
+        type="date"
+        name="dob"
+        value="{{ form_data.dob if form_data else '' }}"
+      /><br /><br />
+      Therapist Name:
+      <input
+        type="text"
+        name="therapist"
+        value="{{ form_data.therapist if form_data else '' }}"
+      /><br /><br />
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>
