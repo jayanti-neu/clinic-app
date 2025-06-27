@@ -59,6 +59,6 @@ def submit():
     return render_template('confirmation.html', first_name=first_name,
                            last_name=last_name, dob=dob, therapist=therapist)
 
+init_db()  # Only once, to create the DB table to make it run both locally and in the cloud
 if __name__ == '__main__':
-    init_db()  # Only once, to create the DB table
     app.run(debug=True)
